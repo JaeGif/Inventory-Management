@@ -7,6 +7,7 @@ const ShoeSchema = new Schema({
   price: { type: Number },
   description: { type: String },
   size: { type: Float64Array },
+  quantity: { type: Number },
 });
 
 // Virtual for shoes' URL

@@ -5,129 +5,38 @@ const router = express.Router();
 const category_controller = require('../controllers/categoryController');
 const shoe_controller = require('../controllers/shoeController');
 
-/// BOOK ROUTES ///
+/// Shoe ROUTES ///
 
 // GET catalog home page.
-router.get('/', book_controller.index);
+router.get('/', shoe_controller.index);
 
-// GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
-router.get('/book/create', book_controller.book_create_get);
+// GET request for creating a Shoe. NOTE This must come before routes that display Shoe (uses id).
+router.get('/shoe/new', shoe_controller.shoe_create_get);
 
-// POST request for creating Book.
-router.post('/book/create', book_controller.book_create_post);
+// POST request for creating a Shoe.
+router.post('/shoe/new', shoe_controller.shoe_create_post);
 
-// GET request to delete Book.
-router.get('/book/:id/delete', book_controller.book_delete_get);
+// GET request to delete a Shoe.
+router.get('/shoe/:id/remove', shoe_controller.shoe_remove_get);
 
-// POST request to delete Book.
-router.post('/book/:id/delete', book_controller.book_delete_post);
+// POST request to delete a Shoe.
+router.post('/shoe/:id/remove', shoe_controller.shoe_remove_post);
 
-// GET request to update Book.
-router.get('/book/:id/update', book_controller.book_update_get);
+// GET request to update a Shoe.
+router.get('/shoe/:id/update', shoe_controller.shoe_update_get);
 
-// POST request to update Book.
-router.post('/book/:id/update', book_controller.book_update_post);
+// POST request to update a Shoe.
+router.post('/shoe/:id/update', shoe_controller.shoe_update_post);
 
-// GET request for one Book.
-router.get('/book/:id', book_controller.book_detail);
+// GET request for one a Shoe.
+router.get('/shoe/:id', shoe_controller.shoe_detail);
 
-// GET request for list of all Book items.
-router.get('/books', book_controller.book_list);
+// GET request for list of all Shoe items.
+router.get('/shoes', shoe_controller.shoe_list);
 
-/// AUTHOR ROUTES ///
+/// CATEGORY ROUTES ///
 
-// GET request for creating Author. NOTE This must come before route for id (i.e. display author).
-router.get('/author/create', author_controller.author_create_get);
-
-// POST request for creating Author.
-router.post('/author/create', author_controller.author_create_post);
-
-// GET request to delete Author.
-router.get('/author/:id/delete', author_controller.author_delete_get);
-
-// POST request to delete Author.
-router.post('/author/:id/delete', author_controller.author_delete_post);
-
-// GET request to update Author.
-router.get('/author/:id/update', author_controller.author_update_get);
-
-// POST request to update Author.
-router.post('/author/:id/update', author_controller.author_update_post);
-
-// GET request for one Author.
-router.get('/author/:id', author_controller.author_detail);
-
-// GET request for list of all Authors.
-router.get('/authors', author_controller.author_list);
-
-/// GENRE ROUTES ///
-
-// GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
-router.get('/genre/create', genre_controller.genre_create_get);
-
-//POST request for creating Genre.
-router.post('/genre/create', genre_controller.genre_create_post);
-
-// GET request to delete Genre.
-router.get('/genre/:id/delete', genre_controller.genre_delete_get);
-
-// POST request to delete Genre.
-router.post('/genre/:id/delete', genre_controller.genre_delete_post);
-
-// GET request to update Genre.
-router.get('/genre/:id/update', genre_controller.genre_update_get);
-
-// POST request to update Genre.
-router.post('/genre/:id/update', genre_controller.genre_update_post);
-
-// GET request for one Genre.
-router.get('/genre/:id', genre_controller.genre_detail);
-
-// GET request for list of all Genre.
-router.get('/genres', genre_controller.genre_list);
-
-/// BOOKINSTANCE ROUTES ///
-
-// GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id).
-router.get(
-  '/bookinstance/create',
-  book_instance_controller.bookinstance_create_get
-);
-
-// POST request for creating BookInstance.
-router.post(
-  '/bookinstance/create',
-  book_instance_controller.bookinstance_create_post
-);
-
-// GET request to delete BookInstance.
-router.get(
-  '/bookinstance/:id/delete',
-  book_instance_controller.bookinstance_delete_get
-);
-
-// POST request to delete BookInstance.
-router.post(
-  '/bookinstance/:id/delete',
-  book_instance_controller.bookinstance_delete_post
-);
-
-// GET request to update BookInstance.
-router.get(
-  '/bookinstance/:id/update',
-  book_instance_controller.bookinstance_update_get
-);
-
-// POST request to update BookInstance.
-router.post(
-  '/bookinstance/:id/update',
-  book_instance_controller.bookinstance_update_post
-);
-
-// GET request for one BookInstance.
-router.get('/bookinstance/:id', book_instance_controller.bookinstance_detail);
-
-// GET request for list of all BookInstance.
-router.get('/bookinstances', book_instance_controller.bookinstance_list);
+// GET request for listing all shoes in a category.
+router.get('/category/:id', category_controller.category_get);
 
 module.exports = router;
