@@ -9,6 +9,13 @@ var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
+const mongoose = require('mongoose');
+const mongoDB =
+  'mongodb+srv://jaegif:uaV45BHkYNuVdE5@cluster0.he3nxm8.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

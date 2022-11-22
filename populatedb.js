@@ -17,7 +17,6 @@ var Shoe = require('./models/shoe');
 var Category = require('./models/category');
 
 var mongoose = require('mongoose');
-const category = require('../models/category');
 var mongoDB = userArgs[0];
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
@@ -170,7 +169,7 @@ function createShoes(cb) {
 }
 
 async.series(
-  [createShoes, createCategories],
+  [createCategories, createShoes],
   // Optional callback
   function (err, results) {
     if (err) {
