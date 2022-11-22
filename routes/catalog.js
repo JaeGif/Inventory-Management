@@ -11,7 +11,7 @@ const shoe_controller = require('../controllers/shoeController');
 router.get('/', shoe_controller.index);
 
 // GET request for creating a Shoe. NOTE This must come before routes that display Shoe (uses id).
-router.get('/shoe/new', shoe_controller.shoe_create_get);
+/* router.get('/shoe/new', shoe_controller.shoe_create_get);
 
 // POST request for creating a Shoe.
 router.post('/shoe/new', shoe_controller.shoe_create_post);
@@ -38,5 +38,5 @@ router.get('/shoes', shoe_controller.shoe_list);
 
 // GET request for listing all shoes in a category.
 router.get('/category/:id', category_controller.category_get);
-
+ */
 module.exports = router;

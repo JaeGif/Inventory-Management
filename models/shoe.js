@@ -6,12 +6,12 @@ const ShoeSchema = new Schema({
   name: { type: String, required: true, maxLength: 50 },
   price: { type: Number },
   description: { type: String },
-  size: { type: Float64Array },
-  quantity: { type: Number },
+  size: { type: Number },
+  category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
 });
 
 // Virtual for shoes' URL
-AuthorSchema.virtual('url').get(function () {
+ShoeSchema.virtual('url').get(function () {
   // We don't use an arrow function as we'll need the this object
   return `/catalog/shoe/${this._id}`;
 });

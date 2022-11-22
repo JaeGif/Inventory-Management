@@ -6,5 +6,11 @@
   </head>
   <body>
     <h1><%= title %></h1>
+
+    <% if (error) { %>
+    <p>Error finding data</p>
+    <%} else { %>
+    <h2>Current inventory total: <%= data.shoe_count %> shoes</h2>
+    <% } %>
   </body>
 </html>
