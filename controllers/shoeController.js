@@ -2,25 +2,7 @@ const Shoe = require('../models/shoe');
 const Category = require('../models/category');
 
 const async = require('async');
-const { nextTick } = require('async');
 
-exports.index = (req, res) => {
-  async.parallel(
-    {
-      shoe_count(callback) {
-        Shoe.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
-      },
-    },
-    (err, results) => {
-      res.render('index', {
-        title: 'Climbing Shoe Inventory',
-        error: err,
-        data: results,
-        page: '',
-      });
-    }
-  );
-};
 exports.index = (req, res) => {
   async.parallel(
     {
@@ -34,7 +16,7 @@ exports.index = (req, res) => {
     (err, results) => {
       res.render('index', {
         title: 'Climbing Shoe Inventory',
-        error: err,
+        err: err,
         data: results,
         page: 'home',
       });
@@ -55,4 +37,25 @@ exports.shoes_list = (req, res, next) => {
         err: undefined,
       });
     });
+};
+exports.shoe_create_get = (req, res, next) => {
+  // Get all authors and genres, which we can use for adding to our book.
+  async.parallel(
+    {
+      categories(callback) {
+        Category.find(callback);
+      },
+    },
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+      res.render('index', {
+        title: 'Add new shoe',
+        categories: results.categories,
+        page: 'new-shoe',
+        err: undefined,
+      });
+    }
+  );
 };

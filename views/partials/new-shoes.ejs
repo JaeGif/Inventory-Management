@@ -1,0 +1,14 @@
+<h2><%= title %></h2>
+
+<form>
+  <input name="shoe" placeholder="Shoe name" type="text" required />
+  <% categories.forEach(category => { %>
+  <label for="<%= category.name %>-box"><%= category.name%></label>
+  <input
+    id="<%= category.name %>-box"
+    type="checkbox"
+    value="<%= category.name %>"
+    required
+  />
+  <% }) %>
+</form>
