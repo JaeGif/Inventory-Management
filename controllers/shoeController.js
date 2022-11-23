@@ -34,7 +34,6 @@ exports.shoes_list = (req, res, next) => {
         title: 'All Shoes',
         shoes: list_shoes,
         page: 'shoes',
-        err: undefined,
       });
     });
 };
@@ -54,7 +53,6 @@ exports.shoe_create_get = (req, res, next) => {
         title: 'Add new shoe',
         categories: results.categories,
         page: 'new-shoe',
-        err: undefined,
       });
     }
   );

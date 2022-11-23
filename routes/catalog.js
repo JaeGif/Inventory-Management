@@ -14,7 +14,7 @@ router.get('/', shoe_controller.index);
 router.get('/shoes', shoe_controller.shoes_list);
 
 // GET request for creating a Shoe. NOTE This must come before routes that display Shoe (uses id).
-router.get('/shoe/new', shoe_controller.shoe_create_get);
+router.get('/new-shoe', shoe_controller.shoe_create_get);
 
 // POST request for creating a Shoe.
 /* router.post('/shoe/new', shoe_controller.shoe_create_post);
