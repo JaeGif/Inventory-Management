@@ -10,6 +10,9 @@ const shoe_controller = require('../controllers/shoeController');
 // GET catalog home page.
 router.get('/', shoe_controller.index);
 
+// GET all shoes listed.
+router.get('/shoes', shoe_controller.shoes_list);
+
 // GET request for creating a Shoe. NOTE This must come before routes that display Shoe (uses id).
 /* router.get('/shoe/new', shoe_controller.shoe_create_get);
 

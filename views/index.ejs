@@ -7,10 +7,11 @@
   <body>
     <h1><%= title %></h1>
 
-    <% if (error) { %>
+    <% if (err !== undefined) { %>
     <p>Error finding data</p>
     <%} else { %>
-    <h2>Current inventory total: <%= data.shoe_count %> shoes</h2>
+    <div><%- include('./partials/nav') %></div>
+    <div><%- include('./partials/'+page); %></div>
     <% } %>
   </body>
 </html>
