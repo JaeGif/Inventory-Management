@@ -17,10 +17,10 @@ router.get('/shoes', shoe_controller.shoes_list);
 router.get('/new-shoe', shoe_controller.shoe_create_get);
 
 // POST request for creating a Shoe.
-/* router.post('/shoe/new', shoe_controller.shoe_create_post);
+router.post('/new-shoe', shoe_controller.shoe_create_post);
 
 // GET request to delete a Shoe.
-router.get('/shoe/:id/remove', shoe_controller.shoe_remove_get);
+/* router.get('/shoe/:id/remove', shoe_controller.shoe_remove_get);
 
 // POST request to delete a Shoe.
 router.post('/shoe/:id/remove', shoe_controller.shoe_remove_post);

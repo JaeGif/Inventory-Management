@@ -1,14 +1,26 @@
 <h2><%= title %></h2>
 
-<form>
-  <input name="shoe" placeholder="Shoe name" type="text" required />
-  <% categories.forEach(category => { %>
-  <label for="<%= category.name %>-box"><%= category.name%></label>
-  <input
-    id="<%= category.name %>-box"
-    type="checkbox"
-    value="<%= category.name %>"
-    required
-  />
-  <% }) %>
-</form>
+<div>
+  <form method="POST" action="">
+    <label for="shoe">Model Name</label>
+    <input id="shoe" name="shoe" placeholder="Shoe name" type="text" required />
+    <label for="price">Price (USD)</label>
+    <input id="price" type="number" required />
+    <textarea
+      id="description"
+      placeholder="Shoe description"
+      required
+    ></textarea>
+    <% categories.forEach(category => { %>
+    <div>
+      <label for="<%= category.name %>-box"><%= category.name%></label>
+      <input
+        id="<%= category.name %>-box"
+        type="checkbox"
+        value="<%= category.name %>"
+      />
+    </div>
+    <% }) %>
+    <button type="submit">Add</button>
+  </form>
+</div>
