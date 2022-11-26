@@ -33,7 +33,7 @@ exports.shoes_list = (req, res, next) => {
         return next(err);
       }
       res.render('index', {
-        title: 'All Shoes',
+        pageHeader: 'All Shoes',
         shoes: list_shoes,
         page: 'shoes',
       });
@@ -52,7 +52,7 @@ exports.shoe_create_get = (req, res, next) => {
         return next(err);
       }
       res.render('index', {
-        title: 'Add new shoe',
+        pageHeader: 'Add new shoe',
         categories: results.categories,
         page: 'new-shoe',
       });
@@ -80,7 +80,7 @@ exports.shoe_create_post = [
     }
     // Extract the validation errors from a request.
     const errors = validationResult(req);
-    console.log('errors', errors);
+    console.log('errors', errors.errors);
     console.log('body', req.body);
 
     // Create a shoe object with escaped and trimmed data.
@@ -97,6 +97,7 @@ exports.shoe_create_post = [
       req.body.price,
       req.body.category
     );
+    console.log(shoe);
     if (!errors.isEmpty()) {
       // There are errors. Render form again with sanitized values/error messages.
       console.log('errors');
@@ -107,7 +108,7 @@ exports.shoe_create_post = [
         }
 
         res.render('index', {
-          title: 'Add new shoe',
+          pageHeader: 'Add new shoe',
           categories: results.categories,
           page: 'new-shoe',
         });
