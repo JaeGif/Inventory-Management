@@ -1,24 +1,21 @@
-<h2><%= title %></h2>
+<h2><%= pageHeader %></h2>
 
 <div>
   <form method="POST" action="">
     <label for="shoe">Model Name</label>
     <input id="shoe" name="shoe" placeholder="Shoe name" type="text" required />
     <label for="price">Price (USD)</label>
-    <input id="price" type="number" required />
+    <input id="price" type="number" name="price" required />
     <textarea
       id="description"
       placeholder="Shoe description"
+      name="description"
       required
     ></textarea>
     <% categories.forEach(category => { %>
     <div>
       <label for="<%= category.name %>-box"><%= category.name%></label>
-      <input
-        id="<%= category.name %>-box"
-        type="checkbox"
-        value="<%= category.name %>"
-      />
+      <input name="category" type="checkbox" value="<%= category._id %>" />
     </div>
     <% }) %>
     <button type="submit">Add</button>
