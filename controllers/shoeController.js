@@ -126,3 +126,4 @@ exports.shoe_create_post = [
     });
   },
 ];
+exports.shoe_remove_get = (req, res, next) => {};
